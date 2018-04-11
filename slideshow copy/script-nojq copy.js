@@ -56,7 +56,8 @@ function startAux()
   goToSlide(1, 0);
 }
 
-var ani = "swipe";
+var ani = "fade";
+var usejQ = false;
 
 var goToSlide = function(n, d)
 {
@@ -76,51 +77,50 @@ var goToSlide = function(n, d)
       }
     }
   }
-  else{
-     if(n > currentSlide){ // swipe left
-       $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
-       $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%", "opacity":0}, d);
-       $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0"}).css({"margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
-     }
-     else{  // swipe right
-       $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
-       $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"100%", "opacity": 0}, d);
-       $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":0,"margin-left":"-100%"}).animate({"opacity":1,"margin-left":"0%"}, d);
-     }
-   }
+ else{
+    if(n > currentSlide){ // swipe left
+      $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
+      $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%", "opacity":0}, d);
+      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0"}).css({"margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
+    }
+    else{  // swipe right
+      $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
+      $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"100%", "opacity": 0}, d);
+      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":0,"margin-left":"-100%"}).animate({"opacity":1,"margin-left":"0%"}, d);
+    }
+  }
 
-   //$("#numContainer button").removeClass("active");
-   //$("#numContainer button:nth-of-type(" + n + ")").addClass("active");
-     var numElements = document.getElementById("numContainer").getElementsByTagName("button");
-     for(var i = 0; i < numElements.length; i++){
-       var ele = numElements[i];
-       if( n == (i+1) ){
-         ele.className = "active";
-       }
-       else{
-         ele.className = "";
-       }
-     }
+  //$("#numContainer button").removeClass("active");
+  //$("#numContainer button:nth-of-type(" + n + ")").addClass("active");
+    var numElements = document.getElementById("numContainer").getElementsByTagName("button");
+    for(var i = 0; i < numElements.length; i++){
+      var ele = numElements[i];
+      if( n == (i+1) ){
+        ele.className = "active";
+      }
+      else{
+        ele.className = "";
+      }
+    }
 
-   currentSlide = n;
- }
+  currentSlide = n;
+}
 
 
- var goNext = function()
- {
-   var n = currentSlide + 1;
-   if (n > allImages.length){
-     n = 1;
-   } 
-   goToSlide(n, 1000);
- }
+var goNext = function()
+{
+  var n = currentSlide + 1;
+  if (n > allImages.length){
+    n = 1;
+  } 
+  goToSlide(n, 1000);
+}
 
- var goPrev = function()
- {
-   var n = currentSlide - 1;
-   if (n < 1){
-     n = allImages.length;
-   } 
-   goToSlide(n, 1000);
- }
- 
+var goPrev = function()
+{
+  var n = currentSlide - 1;
+  if (n < 1){
+    n = allImages.length;
+  } 
+  goToSlide(n, 1000);
+}

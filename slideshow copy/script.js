@@ -15,7 +15,7 @@ var startEmbednoJQ = function()
 
 var start = function()
 {
-allImages = [
+  allImages = [
   'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pied-winged_swallow_%28Hirundo_leucosoma%29.jpg/1280px-Pied-winged_swallow_%28Hirundo_leucosoma%29.jpg',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Rufous-tailed_flycatcher_%28Myiarchus_validus%29.JPG/1024px-Rufous-tailed_flycatcher_%28Myiarchus_validus%29.JPG',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Bare-faced_curassow_%28Crax_fasciolata%29_female_head.JPG/1024px-Bare-faced_curassow_%28Crax_fasciolata%29_female_head.JPG',
@@ -23,6 +23,7 @@ allImages = [
 ];
   startAux();
 }
+
 
 function startAux()
 {
@@ -32,7 +33,6 @@ function startAux()
     markup = markup + "<div class='slide' style='background-image:url(" + imgURL + ")'></div>";
   }
 
-
   /*
   var i = 0;
   while(i < allImages.length){
@@ -41,7 +41,7 @@ function startAux()
     i = i + 1;
   }
    */
-  //$("#ssContainer").html(markup);
+ // $("#ssContainer").html(markup);
   document.getElementById("ssContainer").innerHTML = markup;
 
   var markup1 = "";
@@ -70,16 +70,15 @@ var goToSlide = function(n, d)
     if(n > currentSlide){ // swipe left
       $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
       $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%", "opacity":0}, d);
-      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"margin-left":"100%"}).animate({"margin-left":"0%"}, d);
-//n is the next slide, d is duration
+      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0"}).css({"margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
     }
     else{  // swipe right
-        $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
-        $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"100%", "opacity": 0}, d);
-        $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":0,"margin-left":"-100%"}).animate({"opacity":1;"margin-left":"0%"}, d);
+      $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
+      $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"100%", "opacity": 0}, d);
+      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":0,"margin-left":"-100%"}).animate({"opacity":1,"margin-left":"0%"}, d);
     }
   }
-// change these two lines too to remove jquery
+
   $("#numContainer button").removeClass("active");
   $("#numContainer button:nth-of-type(" + n + ")").addClass("active");
   currentSlide = n;
