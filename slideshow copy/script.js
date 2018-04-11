@@ -16,10 +16,10 @@ var startEmbednoJQ = function()
 var start = function()
 {
   allImages = [
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pied-winged_swallow_%28Hirundo_leucosoma%29.jpg/1280px-Pied-winged_swallow_%28Hirundo_leucosoma%29.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Rufous-tailed_flycatcher_%28Myiarchus_validus%29.JPG/1024px-Rufous-tailed_flycatcher_%28Myiarchus_validus%29.JPG',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Bare-faced_curassow_%28Crax_fasciolata%29_female_head.JPG/1024px-Bare-faced_curassow_%28Crax_fasciolata%29_female_head.JPG',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Savanna_hawk_%28Buteogallus_meridionalis%29.JPG/800px-Savanna_hawk_%28Buteogallus_meridionalis%29.JPG'
+  'https://news.nationalgeographic.com/content/dam/news/2018/02/23/cute-sloths/01-cute-sloths-SLOTH_TW_034450_fullcolor.jpg',
+  'http://www.slothville.com/wp-content/uploads/2017/10/sleep-cinabun-n-tree.jpg',
+  'https://media.mnn.com/assets/images/2017/01/Sloth-Hanging-Tree-Branch.jpg.638x0_q80_crop-smart.jpg',
+  'http://images.mentalfloss.com/sites/default/files/styles/mf_image_16x9/public/monster_primary.png?itok=QWN7T3o-&resize=1100x619'
 ];
   startAux();
 }
