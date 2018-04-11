@@ -76,90 +76,51 @@ var goToSlide = function(n, d)
       }
     }
   }
- else{
-    if(n > currentSlide){ // swipe left
-      var slideElements = document.getElementById("ssContainer").getElementsByClassName("slide");
-      for(var i = 0; i < slideElements.length; i++){
-        slideElements[i].style.transitionDuration = d + "ms";
-        if(n == (i + 1)){
-          slideElements[i].style.transitionDuration = "0ms";
-          slideElements[i].style.marginLeft = "100%";
-          var x = slideElements[i];
-          setTimeout(function(){
-            x.style.transitionDuration = d + "ms";
-            x.style.opacity = 1;
-            x.style.marginLeft = "0%";
-          }, 100);
-        }
-        else{
-          slideElements[i].style.opacity = 0;
-          slideElements[i].style.marginLeft = "-100%";
-        }
-      }
-      /*
-      $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
-      $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%", "opacity":0}, d);
-      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0"}).css({"margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
-     */
-    }
-    else{  // swipe right
-    var slideElements = document.getElementById("ssContainer").getElementsByClassName("slide");
-      for(var i = 0; i < slideElements.length; i++){
-        slideElements[i].style.transitionDuration = d + "ms";
-        if(n == (i + 1)){
-          slideElements[i].style.transitionDuration = "0ms";
-          slideElements[i].style.marginLeft = "-100%";
-          var x = slideElements[i];
-          setTimeout(function(){
-            x.style.transitionDuration = d + "ms";
-            x.style.opacity = 1;
-            x.style.marginLeft = "0%";
-          }, 100);
-        }
-        else{
-          slideElements[i].style.opacity = 0;
-          slideElements[i].style.marginLeft = "-100%";
-        }
-      }
-      /*
-      $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
-      $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"100%", "opacity": 0}, d);
-      $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":0,"margin-left":"-100%"}).animate({"opacity":1,"margin-left":"0%"}, d);
-      */
-    }
-  }
+  else{
+     if(n > currentSlide){ // swipe left
+       $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
+       $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"-100%", "opacity":0}, d);
+       $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":"0"}).css({"margin-left":"100%"}).animate({"opacity":"1","margin-left":"0%"}, d);
+     }
+     else{  // swipe right
+       $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
+       $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"100%", "opacity": 0}, d);
+       $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":0,"margin-left":"-100%"}).animate({"opacity":1,"margin-left":"0%"}, d);
+     }
+   }
 
-  //$("#numContainer button").removeClass("active");
-  //$("#numContainer button:nth-of-type(" + n + ")").addClass("active");
-    var numElements = document.getElementById("numContainer").getElementsByTagName("button");
-    for(var i = 0; i < numElements.length; i++){
-      var ele = numElements[i];
-      if( n == (i+1) ){
-        ele.className = "active";
-      }
-      else{
-        ele.className = "";
-      }
-    }
+   //$("#numContainer button").removeClass("active");
+   //$("#numContainer button:nth-of-type(" + n + ")").addClass("active");
+     var numElements = document.getElementById("numContainer").getElementsByTagName("button");
+     for(var i = 0; i < numElements.length; i++){
+       var ele = numElements[i];
+       if( n == (i+1) ){
+         ele.className = "active";
+       }
+       else{
+         ele.className = "";
+       }
+     }
 
-  currentSlide = n;
-}
+   currentSlide = n;
+ }
 
 
-var goNext = function()
-{
-  var n = currentSlide + 1;
-  if (n > allImages.length){
-    n = 1;
-  } 
-  goToSlide(n, 1000);
-}
+ var goNext = function()
+ {
+   var n = currentSlide + 1;
+   if (n > allImages.length){
+     n = 1;
+   } 
+   goToSlide(n, 1000);
+ }
 
-var goPrev = function()
-{
-  var n = currentSlide - 1;
-  if (n < 1){
-    n = allImages.length;
-  } 
-  goToSlide(n, 1000);
-}
+ var goPrev = function()
+ {
+   var n = currentSlide - 1;
+   if (n < 1){
+     n = allImages.length;
+   } 
+   goToSlide(n, 1000);
+ }
+ 

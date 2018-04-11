@@ -15,7 +15,7 @@ var startEmbednoJQ = function()
 
 var start = function()
 {
-	allImages = [
+allImages = [
   'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pied-winged_swallow_%28Hirundo_leucosoma%29.jpg/1280px-Pied-winged_swallow_%28Hirundo_leucosoma%29.jpg',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Rufous-tailed_flycatcher_%28Myiarchus_validus%29.JPG/1024px-Rufous-tailed_flycatcher_%28Myiarchus_validus%29.JPG',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Bare-faced_curassow_%28Crax_fasciolata%29_female_head.JPG/1024px-Bare-faced_curassow_%28Crax_fasciolata%29_female_head.JPG',
@@ -64,8 +64,6 @@ var goToSlide = function(n, d)
   d = d || 0;
   if(ani === "fade"){
     $("#ssContainer .slide").stop().fadeOut(d);
-	//var slideElements = document.getElementById("ssContainer").getElementsByClassName("slide")
-	//console.log(slideElements);
     $("#ssContainer .slide:nth-of-type(" + n + ")").stop().fadeIn(d);
   }
  else{
@@ -76,7 +74,7 @@ var goToSlide = function(n, d)
 //n is the next slide, d is duration
     }
     else{  // swipe right
-        $("#ssContainer .slide").stop().animate({"margin-left":"100%"}, d);
+        $("#ssContainer .slide").stop().animate({"margin-left":"-100%"}, d);
         $("#ssContainer .slide:nth-of-type(" + currentSlide + ")").stop().animate({"margin-left":"100%", "opacity": 0}, d);
         $("#ssContainer .slide:nth-of-type(" + n + ")").stop().css({"opacity":0,"margin-left":"-100%"}).animate({"opacity":1;"margin-left":"0%"}, d);
     }
