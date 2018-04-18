@@ -56,7 +56,7 @@ function startAux()
   goToSlide(1, 0);
 }
 
-var ani = "fade";
+var ani = "swipe";
 var usejQ = false;
 
 var goToSlide = function(n, d)
